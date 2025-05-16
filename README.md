@@ -1,6 +1,6 @@
 # Wii Party Minigame Probability Simulation
 
-A Python simulation analyzing winning strategies for the Hide-and-Peek minigame in [*Wii Party*](https://en.wikipedia.org/wiki/Wii_Party).
+A short personal project of mine where I wrote a Python simulation to analyze winning strategies for the Hide-and-Peek minigame in [*Wii Party*](https://en.wikipedia.org/wiki/Wii_Party).
 
 ## Table of Contents
 - [Background](#background)
@@ -61,7 +61,7 @@ If you would like to test this yourself, keep reading!
 - [Python 3.x](https://www.python.org/downloads/).
 
 ### Steps
-1. Clone this repository and navigate to the project folder; the simulation code is in `hide_and_peek_simulator.py`.
+1. Clone this repository and navigate to the project folder; the simulation code is in [`hide_and_peek_simulator.py`](hide_and_peek_simulator.py).
 2. Configure the simulation parameters in `main()`.
 3. Run the script.
 
