@@ -1,3 +1,5 @@
+# (c) 2025 Ethan Griffith
+
 import random
 
 # simulation of the wii party minigame "hide-and-peek".
@@ -134,11 +136,11 @@ def examples(strategy: str, nExamples: int) :
 def main() :
     # ----------------------------------------
     # set to true to run that number of trials
-    runTrials = False
-    numTrials = 10000
+    runTrials = True
+    numTrials = 1000000
     # ----------------------------------------
     # set to true to display sample games
-    showExamples = True
+    showExamples = False
     nExamples = 3
     # ----------------------------------------
 
