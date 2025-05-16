@@ -13,6 +13,53 @@ import random
 # strategy A: all hiders randomly choose among the 6 legit spots (repeats allowed).
 # strategy B: one hider deliberately hides in the joke spot; other two randomly choose among the 6 legit spots (repeats allowed).
 
+def main() :
+    # ----------------------------------------
+    # set to true to run that number of trials
+    runTrials = True
+    numTrials = 1000000
+    # ----------------------------------------
+    # set to true to display sample games
+    showExamples = False
+    nExamples = 3
+    # ----------------------------------------
+
+    # run trials
+    if runTrials :
+        hiderWinRateA = strategyA(numTrials)
+        hiderWinRateB = strategyB(numTrials)
+        advantage = abs(hiderWinRateA - hiderWinRateB)
+        equal = False
+        if hiderWinRateA > hiderWinRateB :
+            betterStrat = "Strategy A"
+        elif hiderWinRateA == hiderWinRateB:
+            equal = True
+        else :
+            betterStrat = "Strategy B"
+        print()
+        print(f"--- Simulation results ---")
+        print(f"{numTrials} trials run on both strategies")
+        print()
+        print(f"Strategy A hider win percentage: {hiderWinRateA * 100:.2f}%")
+        print(f"Strategy B hider win percentage: {hiderWinRateB * 100:.2f}%")
+        print()
+        if not equal : 
+            print(f"Using {betterStrat}, the hiders were {advantage * 100:.2f}% more likely to win this round!")
+        else :
+            print(f"Strategies A and B gave the hiders equal chances to win this round!")
+        print()
+
+    # show examples
+    if showExamples :
+        print()
+        examples("A", nExamples)
+        examples("B", nExamples)
+
+    # if neither are enabled
+    if (not runTrials) and (not showExamples) :
+        print("Enable something!")
+        print()
+
 def strategyA(trials: int) -> float :
     '''
     simulate games where all three hiders choose randomly among the 6 legit spots.
@@ -135,53 +182,6 @@ def examples(strategy: str, nExamples: int) :
         print(f"  Hider spots: {hiderSpots}")
         print(f"  Search spots: {list(searchSpots)}")
         print(f"  Winner: {winner}\n")
-
-def main() :
-    # ----------------------------------------
-    # set to true to run that number of trials
-    runTrials = True
-    numTrials = 1000000
-    # ----------------------------------------
-    # set to true to display sample games
-    showExamples = False
-    nExamples = 3
-    # ----------------------------------------
-
-    # run trials
-    if runTrials :
-        hiderWinRateA = strategyA(numTrials)
-        hiderWinRateB = strategyB(numTrials)
-        advantage = abs(hiderWinRateA - hiderWinRateB)
-        equal = False
-        if hiderWinRateA > hiderWinRateB :
-            betterStrat = "Strategy A"
-        elif hiderWinRateA == hiderWinRateB:
-            equal = True
-        else :
-            betterStrat = "Strategy B"
-        print()
-        print(f"--- Simulation results ---")
-        print(f"{numTrials} trials run on both strategies")
-        print()
-        print(f"Strategy A hider win percentage: {hiderWinRateA * 100:.2f}%")
-        print(f"Strategy B hider win percentage: {hiderWinRateB * 100:.2f}%")
-        print()
-        if not equal : 
-            print(f"Using {betterStrat}, the hiders were {advantage * 100:.2f}% more likely to win this round!")
-        else :
-            print(f"Strategies A and B gave the hiders equal chances to win this round!")
-        print()
-
-    # show examples
-    if showExamples :
-        print()
-        examples("A", nExamples)
-        examples("B", nExamples)
-
-    # if neither are enabled
-    if (not runTrials) and (not showExamples) :
-        print("Enable something...")
-        print()
 
 if __name__ == "__main__" :
     main()
