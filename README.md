@@ -94,7 +94,6 @@ nExamples = 3
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).  
-You are free to use, modify, and distribute this code, provided you include proper credit and retain the license notice.
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this code, provided you include proper credit and retain the license notice.
 
 > © 2025 Ethan Griffith
