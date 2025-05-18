@@ -17,7 +17,7 @@ def main() :
     # ----------------------------------------
     # set to true to run that number of trials
     runTrials = True
-    numTrials = 1000000
+    numTrials = 100000
     # ----------------------------------------
     # set to true to display sample games
     showExamples = False
@@ -32,7 +32,7 @@ def main() :
         equal = False
         if hiderWinRateA > hiderWinRateB :
             betterStrat = "Strategy A"
-        elif hiderWinRateA == hiderWinRateB:
+        elif hiderWinRateA == hiderWinRateB :
             equal = True
         else :
             betterStrat = "Strategy B"
@@ -60,7 +60,7 @@ def main() :
         print("Enable something!")
         print()
 
-def strategyA(trials: int) -> float :
+def strategyA(trials : int) -> float :
     '''
     simulate games where all three hiders choose randomly among the 6 legit spots.
     the seeker has 5 searches among those 6 legit spots.
@@ -96,7 +96,7 @@ def strategyA(trials: int) -> float :
 
     return hiderWins / trials
 
-def strategyB(trials: int) -> float :
+def strategyB(trials : int) -> float :
     '''
     simulate games where one hider chooses the joke spot (6) and the other two choose among the 6 legit spots.
     the seeker must still use one search on the joke spot, leaving 4 searches among the 6 legit spots.
@@ -136,7 +136,7 @@ def strategyB(trials: int) -> float :
 
     return hiderWins / trials
 
-def simulateSingleGame(strategy: str) :
+def simulateSingleGame(strategy : str) :
     '''
     simulate one game under a certain strategy and return details.
     the code here is the same as the other two functions.
@@ -174,7 +174,7 @@ def simulateSingleGame(strategy: str) :
         winner = "Seeker"
     return hiderSpots, searchSpots, winner
 
-def examples(strategy: str, nExamples: int) :
+def examples(strategy : str, nExamples : int) :
     print(f"-- {nExamples} example games for Strategy {strategy} --")
     for i in range(nExamples) :
         hiderSpots, searchSpots, winner = simulateSingleGame(strategy)
