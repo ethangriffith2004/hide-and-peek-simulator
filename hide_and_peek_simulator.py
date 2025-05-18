@@ -3,17 +3,20 @@ Copyright (c) 2025 Ethan Griffith
 Licensed under the MIT License. See LICENSE file in the project root for details.
 '''
 
+'''
+simulation of the wii party minigame "hide-and-peek".
+- 3 hiders, 1 seeker. seven spots: 6 legit, 1 joke.
+- seeker can look in 5 of the 7 spots to find all 3 hiders. if all are found within 5 searches, seeker wins. if not, hiders win.
+
+two strategies being tested:
+- strategy A: all hiders randomly choose among the 6 legit spots (repeats allowed).
+- strategy B: one hider deliberately hides in the joke spot; other two randomly choose among the 6 legit spots (repeats allowed).
+'''
+
 import random
 
-# simulation of the wii party minigame "hide-and-peek".
-# 3 hiders, 1 seeker. seven spots: 6 legit, 1 joke.
-# seeker can look in 5 of the 7 spots to find all 3 hiders. if all are found within 5 searches, seeker wins. if not, hiders win.
-
-# two strategies being tested:
-# strategy A: all hiders randomly choose among the 6 legit spots (repeats allowed).
-# strategy B: one hider deliberately hides in the joke spot; other two randomly choose among the 6 legit spots (repeats allowed).
-
 def main() :
+
     # ----------------------------------------
     runTrials = True
     numTrials = 100000
@@ -24,41 +27,21 @@ def main() :
 
     # run trials
     if runTrials :
-        hiderWinRateA = strategyA(numTrials)
-        hiderWinRateB = strategyB(numTrials)
-        advantage = abs(hiderWinRateA - hiderWinRateB)
-        equal = False
-        if hiderWinRateA > hiderWinRateB :
-            betterStrat = "Strategy A"
-        elif hiderWinRateA == hiderWinRateB :
-            equal = True
-        else :
-            betterStrat = "Strategy B"
         print()
-        print(f"--- Simulation results ---")
-        print(f"{numTrials} trials run on both strategies")
-        print()
-        print(f"Strategy A hider win percentage: {hiderWinRateA * 100:.2f}%")
-        print(f"Strategy B hider win percentage: {hiderWinRateB * 100:.2f}%")
-        print()
-        if not equal : 
-            print(f"Using {betterStrat}, the hiders were {advantage * 100:.2f}% more likely to win this round!")
-        else :
-            print(f"Strategies A and B gave the hiders equal chances to win this round!")
-        print()
+        runTrialGames(numTrials)
 
     # show examples
     if showExamples :
         print()
-        examples("A", nExamples)
-        examples("B", nExamples)
+        displayExampleGames("A", nExamples)
+        displayExampleGames("B", nExamples)
 
     # if neither are enabled
     if (not runTrials) and (not showExamples) :
         print("Enable something!")
         print()
 
-def strategyA(trials : int) -> float :
+def runStrategyA(trials : int) -> float :
     '''
     simulate games where all three hiders choose randomly among the 6 legit spots.
     the seeker has 5 searches among those 6 legit spots.
@@ -94,7 +77,7 @@ def strategyA(trials : int) -> float :
 
     return hiderWins / trials
 
-def strategyB(trials : int) -> float :
+def runStrategyB(trials : int) -> float :
     '''
     simulate games where one hider chooses the joke spot (6) and the other two choose among the 6 legit spots.
     the seeker must still use one search on the joke spot, leaving 4 searches among the 6 legit spots.
@@ -134,7 +117,30 @@ def strategyB(trials : int) -> float :
 
     return hiderWins / trials
 
-def simulateSingleGame(strategy : str) :
+def runTrialGames(numTrials : int) :
+    hiderWinRateA = runStrategyA(numTrials)
+    hiderWinRateB = runStrategyB(numTrials)
+    advantage = abs(hiderWinRateA - hiderWinRateB)
+    equal = False
+    if hiderWinRateA > hiderWinRateB :
+        betterStrat = "Strategy A"
+    elif hiderWinRateA == hiderWinRateB :
+        equal = True
+    else :
+        betterStrat = "Strategy B"
+    print(f"--- Simulation results ---")
+    print(f"{numTrials} trials run on both strategies")
+    print()
+    print(f"Strategy A hider win percentage: {hiderWinRateA * 100:.2f}%")
+    print(f"Strategy B hider win percentage: {hiderWinRateB * 100:.2f}%")
+    print()
+    if not equal : 
+        print(f"Using {betterStrat}, the hiders were {advantage * 100:.2f}% more likely to win this round!")
+    else :
+        print(f"Strategies A and B gave the hiders equal chances to win this round!")
+    print()
+
+def runExampleGame(strategy : str) :
     '''
     simulate one game under a certain strategy and return details.
     the code here is the same as the other two functions.
@@ -172,10 +178,13 @@ def simulateSingleGame(strategy : str) :
         winner = "Seeker"
     return hiderSpots, searchSpots, winner
 
-def examples(strategy : str, nExamples : int) :
+def displayExampleGames(strategy : str, nExamples : int) :
+    '''
+    display the simulated single games.
+    '''
     print(f"-- {nExamples} example games for Strategy {strategy} --")
     for i in range(nExamples) :
-        hiderSpots, searchSpots, winner = simulateSingleGame(strategy)
+        hiderSpots, searchSpots, winner = runExampleGame(strategy)
         print(f"Game {i + 1}:")
         print(f"  Hider spots: {hiderSpots}")
         print(f"  Search spots: {list(searchSpots)}")
