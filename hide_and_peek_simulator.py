@@ -15,11 +15,9 @@ import random
 
 def main() :
     # ----------------------------------------
-    # set to true to run that number of trials
     runTrials = True
     numTrials = 100000
     # ----------------------------------------
-    # set to true to display sample games
     showExamples = False
     nExamples = 3
     # ----------------------------------------
