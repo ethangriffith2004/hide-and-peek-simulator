@@ -19,7 +19,7 @@ def main() :
 
     # ----------------------------------------
     runTrials = True
-    nTrials = 10
+    nTrials = 10000
     # ----------------------------------------
     runExamples = True
     nExamples = 3
@@ -30,16 +30,16 @@ def main() :
         print()
         runTrialGames(nTrials)
 
-    # show examples
+    # run examples
     if runExamples :
         print()
         runExampleGames("A", nExamples)
         runExampleGames("B", nExamples)
 
     # if neither are enabled
-    if (not runTrials) or (not runExamples) :
+    if (not runTrials) and (not runExamples) :
         print()
-        print("Enable something!")
+        print("Both set to false; enable something!")
         print()
 
 def runStrategyA(trials : int, returnDetails : bool) -> float :
@@ -179,7 +179,8 @@ def runExampleGames(strategy : str, nExamples : int) :
         print(f"Game {i + 1}:")
         print(f"  Hider spots: {hiderSpots}")
         print(f"  Search spots: {searchSpots}")
-        print(f"  Winner: {winner}\n")
+        print(f"  Winner: {winner}")
+        print()
 
 if __name__ == "__main__" :
     main()
