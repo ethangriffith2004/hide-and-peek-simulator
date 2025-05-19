@@ -3,6 +3,8 @@ Copyright (c) 2025 Ethan Griffith
 Licensed under the MIT License. See LICENSE file in the project root for details.
 '''
 
+import random
+
 '''
 simulation of the wii party minigame "hide-and-peek".
 - 3 hiders, 1 seeker. seven spots: 6 legit, 1 joke.
@@ -12,8 +14,6 @@ two strategies being tested:
 - strategy A: all hiders randomly choose among the 6 legit spots (repeats allowed).
 - strategy B: one hider deliberately hides in the joke spot; other two randomly choose among the 6 legit spots (repeats allowed).
 '''
-
-import random
 
 def main() :
 
