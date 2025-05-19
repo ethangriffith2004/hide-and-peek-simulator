@@ -18,10 +18,10 @@ two strategies being tested:
 def main() :
 
     # ----------------------------------------
-    runTrials = True
+    runTrials = False
     nTrials = 10000
     # ----------------------------------------
-    runExamples = True
+    runExamples = False
     nExamples = 3
     # ----------------------------------------
 
