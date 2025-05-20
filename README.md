@@ -73,8 +73,8 @@ To run 10,000 trials of both strategies and see the estimated probabilities for 
 
 ```python
 runTrials = True
-numTrials = 10000
-showExamples = False
+nTrials = 10000
+runExamples = False
 # nExamples doesn't matter
 ```
 
@@ -82,8 +82,8 @@ To run 3 sample games for each strategy, showing specific results for each, set 
 
 ```python
 runTrials = False
-# numTrials doesn't matter
-showExamples = True
+# nTrials doesn't matter
+runExamples = True
 nExamples = 3
 ```
 
