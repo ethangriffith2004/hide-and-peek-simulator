@@ -66,7 +66,7 @@ This project:
 ## How to Run
 
 ### Prerequisites
-- [Python 3.x](https://www.python.org/downloads/).
+- [Python 3.x](https://www.python.org/downloads/)
 
 ### Steps
 1. Download the simulation code: [`hide_and_peek_simulator.py`](hide_and_peek_simulator.py).
