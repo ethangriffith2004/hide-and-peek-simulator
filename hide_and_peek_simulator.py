@@ -1,6 +1,6 @@
 '''
 Copyright (c) 2025 Ethan Griffith
-Licensed under the MIT License. See LICENSE file in the project root for details.
+Licensed under the MIT License. See LICENSE file for details.
 '''
 
 import random
@@ -17,13 +17,15 @@ two strategies being tested:
 
 def main() :
 
-    # ----------------------------------------
+    # -------------------------
+    # simulation parameters
+    # -------------------------
     runTrials = False
     nTrials = 10000
-    # ----------------------------------------
+    # -------------------------
     runExamples = False
     nExamples = 3
-    # ----------------------------------------
+    # -------------------------
 
     # run trials
     if runTrials :
@@ -48,7 +50,7 @@ def runStrategyA(trials : int, returnDetails : bool) -> float :
     the seeker has 5 searches among those 6 legit spots.
     returns the proportion of games won by the hiders.
     '''
-    legitSpots = [0, 1, 2, 3, 4, 5] # legit hiding spots, joke spot 6 unused here
+    legitSpots = [0, 1, 2, 3, 4, 5] # legit hiding spots, joke spot (6) unused here
     hiderWins = 0
     details = []
 
@@ -74,7 +76,7 @@ def runStrategyA(trials : int, returnDetails : bool) -> float :
         if not allFound :
             hiderWins += 1
 
-        # return individual game details if enabled
+        # set up returning individual game details, if enabled
         if returnDetails :
             if not allFound :
                 winner = "Hiders"
@@ -82,11 +84,13 @@ def runStrategyA(trials : int, returnDetails : bool) -> float :
                 winner = "Seeker"
             details.append((hiderSpots, list(searchSpots), winner))
 
-    # return the right thing depending on settings.
+    winRate = hiderWins / trials
+
+    # return the right thing
     if returnDetails :
         return details
     else :
-        return hiderWins / trials
+        return winRate
 
 def runStrategyB(trials : int, returnDetails : bool) -> float :
     '''
@@ -125,19 +129,21 @@ def runStrategyB(trials : int, returnDetails : bool) -> float :
         if not allFound :
             hiderWins += 1
 
-        # return individual game details if enabled
+        # set up returning individual game details, if enabled
         if returnDetails :
             if not allFound :
                 winner = "Hiders"
             else :
                 winner = "Seeker"
             details.append((hiderSpots, list(searchSpots), winner))
+    
+    winRate = hiderWins / trials
 
-    # return the right thing depending on settings.
+    # return the right thing
     if returnDetails :
         return details
     else :
-        return hiderWins / trials
+        return winRate
 
 def runTrialGames(numTrials : int) :
     '''
