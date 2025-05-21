@@ -97,7 +97,7 @@ nExamples = 3
 
 ## Contributing
 
-- Feel free to fork the repo and suggest improvements!
+- Feel free to fork the repo and add on to the project!
 - Open to feedback and questions via email or GitHub issues.
 
 ## License
