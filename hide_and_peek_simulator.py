@@ -48,7 +48,6 @@ def runStrategyA(trials : int, returnDetails : bool) -> float :
     '''
     simulate games where all three hiders choose randomly among the 6 legit spots.
     the seeker has 5 searches among those 6 legit spots.
-    returns the proportion of games won by the hiders.
     '''
     legitSpots = [0, 1, 2, 3, 4, 5] # legit hiding spots, joke spot (6) unused here
     hiderWins = 0
@@ -96,7 +95,6 @@ def runStrategyB(trials : int, returnDetails : bool) -> float :
     '''
     simulate games where one hider chooses the joke spot (6) and the other two choose among the 6 legit spots.
     the seeker must still use one search on the joke spot, leaving 4 searches among the 6 legit spots.
-    returns the proportion of games won by the hiders.
     '''
     legitSpots = [0, 1, 2, 3, 4, 5] # legit hiding spots
     jokeSpot = 6 # joke spot
