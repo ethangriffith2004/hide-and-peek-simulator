@@ -1,4 +1,4 @@
-# Wii Party Minigame Probability Simulation
+# Hide-and-Peek Simulator
 
 A short and simple personal project of mine where I wrote a Python simulation to analyze winning strategies for the Hide-and-Peek minigame in [*Wii Party*](https://en.wikipedia.org/wiki/Wii_Party).
 
