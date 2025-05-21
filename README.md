@@ -69,7 +69,7 @@ This project:
 - [Python 3.x](https://www.python.org/downloads/).
 
 ### Steps
-1. Download the simulation code from [`hide_and_peek_simulator.py`](hide_and_peek_simulator.py).
+1. Download the simulation code: [`hide_and_peek_simulator.py`](hide_and_peek_simulator.py).
 2. Configure the simulation parameters in `main()`.
 3. Run the script.
 
