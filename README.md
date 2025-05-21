@@ -8,6 +8,7 @@ A short and simple personal project of mine where I wrote a Python simulation to
 - [Technologies Used](#technologies-used)
 - [Results](#results)
 - [Takeaways](#takeaways)
+- [Improvements & Extensions](#improvements--extensions)
 - [How to Run](#how-to-run)
 - [Contributing](#contributing)
 - [License](#license)
@@ -25,7 +26,7 @@ However:
 - Only six of the seven spots are legit.
 - One of the spots is a "joke spot", and any hiders who choose it are immediately visible, but the seeker still has to look there to count them as found.
 
-I always thought the "joke spot" was just that: a joke. Though, I eventually came across claims that **intentionally using it could improve the hiders' odds of winning**. I saw nothing to truly back this up, so I wanted to find out for myself.
+I always thought the "joke spot" was just that: a joke. Though, I eventually came across claims that **intentionally using it could improve the hiders' odds of winning**. I saw nothing to truly back this up, however, so I wanted to find out for myself.
 
 ## Project Overview
 
@@ -51,9 +52,16 @@ If you would like to test this yourself, keep reading!
 
 ## Takeaways
 
-- This project showed me how **intuition can be misleading**, and that what seems like a "wrong" choice in the moment can actually provide an advantage later on.
-- This simulation project gave me a hands-on way to **explore probability and game theory**, concepts I always found a bit abstract.
-- Writing a simulation from scratch helped to **strengthen my Python fundamentals**, especially with loops, randomness, and reproducibility.
+This project:
+- Gave me a hands-on way to **explore probability and game theory**, concepts I always found a bit abstract.
+- **Strengthened my Python fundamentals**, especially regarding loops, randomness, and writing readable code.
+- Emphasized how **intuition can be misleading**, and that what seems like a "wrong" choice can actually provide an advantage.
+
+## Improvements & Extensions
+
+- Simulate more strategies (e.g. two hiders choose joke spot).
+- Add a visual or graphical output for results.
+- Implement a GUI to allow users to adjust simulation settings without directly modifying the source code.
 
 ## How to Run
 
@@ -65,7 +73,7 @@ If you would like to test this yourself, keep reading!
 2. Configure the simulation parameters in `main()`.
 3. Run the script.
 
-> Running the trials may take a few seconds to complete depending on your system.
+> Running a large number of trials may take a few seconds to complete depending on your system.
 
 ### Examples
 
