@@ -69,7 +69,7 @@ If you would like to test this yourself, keep reading!
 
 ### Examples
 
-To run 10,000 trials of both strategies and see the estimated probabilities for each, set the parameters in `main()` like this:
+To run 10,000 trial games of both strategies (and see the estimated probabilities for each), set the parameters in `main()` like this:
 
 ```python
 runTrials = True
@@ -78,7 +78,7 @@ runExamples = False
 # nExamples doesn't matter
 ```
 
-To run 3 sample games for each strategy, showing specific results for each, set the parameters in `main()` like this:
+To run 3 example games for each strategy (and see specific results for each), set the parameters in `main()` like this:
 
 ```python
 runTrials = False
