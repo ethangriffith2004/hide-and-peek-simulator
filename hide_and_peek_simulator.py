@@ -60,6 +60,7 @@ def runStrategyA(trials : int, returnDetails : bool) -> float :
             hiderSpots.append(random.choice(legitSpots))
 
         # seeker chooses 5 unique spots to search among the legit spots
+        # use a set for faster lookup time
         searchSpots = set()
         while len(searchSpots) < 5 :
             searchSpots.add(random.choice(legitSpots))
@@ -116,18 +117,16 @@ def runStrategyB(trials : int, returnDetails : bool) -> float :
         while len(searchSpots) < 5 :
             searchSpots.add(random.choice(legitSpots))
 
-        # determine if all hiders have been found
+        # everything else is the same
         allFound = True
         for spot in hiderSpots :
             if spot not in searchSpots :
                 allFound = False
                 break
 
-        # if any hider is not found, the hiders win
         if not allFound :
             hiderWins += 1
 
-        # set up returning individual game details, if enabled
         if returnDetails :
             if not allFound :
                 winner = "Hiders"
@@ -137,7 +136,6 @@ def runStrategyB(trials : int, returnDetails : bool) -> float :
     
     winRate = hiderWins / trials
 
-    # return the right thing
     if returnDetails :
         return details
     else :
