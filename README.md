@@ -9,7 +9,7 @@ A Python script to simulate the Hide-and-Peek minigame in [*Wii Party*](https://
 - [Results](#results)
 - [Takeaways](#takeaways)
 - [Improvements & Extensions](#improvements--extensions)
-- [How to Run](#how-to-run)
+- [Download & Setup](#download--setup)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -63,12 +63,12 @@ This project:
 - Add a visual or graphical output for results.
 - Implement a GUI to allow users to adjust simulation settings without directly modifying the source code.
 
-## How to Run
+## Download & Setup
 
 ### Prerequisites
 - [Python 3.x](https://www.python.org/downloads/)
 
-### Steps
+### How to Run
 1. Download the simulation code: [`hide_and_peek_simulator.py`](hide_and_peek_simulator.py).
 2. Configure the simulation parameters in `main()`.
 3. Run the script.
