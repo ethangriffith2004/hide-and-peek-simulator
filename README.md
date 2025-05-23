@@ -73,6 +73,7 @@ This project:
 2. Configure the simulation parameters in `main()`.
 3. Run the script.
 
+> [!NOTE]
 > Running a large number of trials may take a few seconds to complete depending on your system.
 
 ### Examples
