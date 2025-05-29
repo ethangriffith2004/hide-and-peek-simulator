@@ -44,7 +44,7 @@ def main() :
         print("Both set to false; enable something!")
         print()
 
-def runStrategyA(trials : int, returnDetails : bool) -> float :
+def runStrategyA(trials : int, returnDetails : bool) :
     '''
     simulate games where all three hiders choose randomly among the 6 legit spots.
     the seeker has 5 searches among those 6 legit spots.
@@ -92,7 +92,7 @@ def runStrategyA(trials : int, returnDetails : bool) -> float :
     else :
         return winRate
 
-def runStrategyB(trials : int, returnDetails : bool) -> float :
+def runStrategyB(trials : int, returnDetails : bool) :
     '''
     simulate games where one hider chooses the joke spot (6) and the other two choose among the 6 legit spots.
     the seeker must still use one search on the joke spot, leaving 4 searches among the 6 legit spots.
