@@ -60,7 +60,6 @@ Keep reading if you would like to test the results yourself!
 This project:
 - Gave me a hands-on way to **explore probability and game theory**, concepts I always found a bit abstract.
 - **Strengthened my Python fundamentals**, especially regarding loops, randomness, and writing readable code.
-- Emphasized how **intuition can be misleading**, and that what seems like a "wrong" choice can actually provide an advantage.
 
 ## Improvements & Extensions
 
