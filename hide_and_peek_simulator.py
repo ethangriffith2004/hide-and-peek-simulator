@@ -45,10 +45,12 @@ def main() :
         print()
 
 def runStrategyA(trials : int, returnDetails : bool) :
+
     '''
     simulate games where all three hiders choose randomly among the 6 legit spots.
     the seeker has 5 searches among those 6 legit spots.
     '''
+    
     legitSpots = [0, 1, 2, 3, 4, 5] # legit hiding spots, joke spot (6) unused here
     hiderWins = 0
     details = []
@@ -91,10 +93,12 @@ def runStrategyA(trials : int, returnDetails : bool) :
         return hiderWins / trials
 
 def runStrategyB(trials : int, returnDetails : bool) :
+
     '''
     simulate games where one hider chooses the joke spot (6) and the other two choose among the 6 legit spots.
     the seeker must still use one search on the joke spot, leaving 4 searches among the 6 legit spots.
     '''
+
     legitSpots = [0, 1, 2, 3, 4, 5] # legit hiding spots
     jokeSpot = 6 # joke spot
     hiderWins = 0
@@ -138,9 +142,11 @@ def runStrategyB(trials : int, returnDetails : bool) :
         return hiderWins / trials
 
 def runTrialGames(numTrials : int) :
+
     '''
     run and display the trial games.
     '''
+
     hiderWinRateA = runStrategyA(numTrials, False)
     hiderWinRateB = runStrategyB(numTrials, False)
     advantage = abs(hiderWinRateA - hiderWinRateB)
@@ -164,9 +170,11 @@ def runTrialGames(numTrials : int) :
     print()
 
 def runExampleGames(strategy : str, nExamples : int) :
+
     '''
     run and display the example games.
     '''
+    
     print(f"-- {nExamples} example games for Strategy {strategy} --")
     if strategy == "A" :
         games = runStrategyA(nExamples, True)
