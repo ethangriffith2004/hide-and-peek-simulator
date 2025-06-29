@@ -73,12 +73,13 @@ This project:
 - [Python 3.x](https://www.python.org/downloads/)
 
 ### How to Run
-1. Download the simulation code: [`hide_and_peek_simulator.py`](hide_and_peek_simulator.py).
-2. Configure the simulation parameters in `main()`.
-3. Run the script.
+1. Clone this repository or download the simulation code directly: [`hide_and_peek_simulator.py`](hide_and_peek_simulator.py).
+2. Open the file in your preferred editor and modify the parameters in `main()` to choose what you want to run.
+4. Run the script.
 
-> [!NOTE]
-> Running a large number of trials may take a few seconds to complete depending on your system.
+```python
+python3 hide_and_peek_simulator.py
+```
 
 ### Examples
 
@@ -99,6 +100,9 @@ runTrials = False
 runExamples = True
 nExamples = 3
 ```
+
+> [!NOTE]
+> Running a large number of trials may take a few seconds to complete depending on your system.
 
 ## Contributing
 
