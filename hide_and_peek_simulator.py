@@ -17,15 +17,15 @@ two strategies being tested:
 
 def main() :
 
-    # -------------------------
+    # ---------------------
     # simulation parameters
-    # -------------------------
+    # ---------------------
     runTrials = False
     nTrials = 10000
-    # -------------------------
+    # ---------------------
     runExamples = False
     nExamples = 3
-    # -------------------------
+    # ---------------------
 
     # run trials
     if runTrials :
@@ -50,7 +50,7 @@ def runStrategyA(trials : int, returnDetails : bool) :
     simulate games where all three hiders choose randomly among the 6 legit spots.
     the seeker has 5 searches among those 6 legit spots.
     '''
-    
+
     legitSpots = [0, 1, 2, 3, 4, 5] # legit hiding spots, joke spot (6) unused here
     hiderWins = 0
     details = []
