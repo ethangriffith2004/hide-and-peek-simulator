@@ -84,13 +84,11 @@ def runStrategyA(trials : int, returnDetails : bool) :
                 winner = "Seeker"
             details.append((hiderSpots, list(searchSpots), winner))
 
-    winRate = hiderWins / trials
-
     # return the right thing
     if returnDetails :
         return details
     else :
-        return winRate
+        return hiderWins / trials
 
 def runStrategyB(trials : int, returnDetails : bool) :
     '''
@@ -117,7 +115,7 @@ def runStrategyB(trials : int, returnDetails : bool) :
         while len(searchSpots) < 5 :
             searchSpots.add(random.choice(legitSpots))
 
-        # everything else is the same
+        # all other logic is the same
         allFound = True
         for spot in hiderSpots :
             if spot not in searchSpots :
@@ -133,13 +131,11 @@ def runStrategyB(trials : int, returnDetails : bool) :
             else :
                 winner = "Seeker"
             details.append((hiderSpots, list(searchSpots), winner))
-    
-    winRate = hiderWins / trials
 
     if returnDetails :
         return details
     else :
-        return winRate
+        return hiderWins / trials
 
 def runTrialGames(numTrials : int) :
     '''
