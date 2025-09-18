@@ -49,7 +49,7 @@ This project simulates the minigame. The simulation models the game mechanics an
 <details>
   <summary>Spoiler warning!</summary>
   
-  After running at least 10,000 trials for each strategy, the simulation begins to reliably reveal that **Strategy B** (deliberately choosing the joke spot) increases the hiders' chances of winning by approximately **13.5%**! This gives support to the online claim.
+  After running at least 10,000 trials for each strategy, the simulation begins to reliably reveal that **Strategy B** (deliberately choosing the joke spot) increases the hiders' chances of winning by approximately **13.5%**! This supports the claims I saw online.
   
 </details>
 
