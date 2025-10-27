@@ -106,7 +106,7 @@ nExamples = 3
 
 ## Contributing
 
-- Fork the repo and submit a pull request with any improvements!
+- Fork the repo and submit a pull request with any improvements.
 - Suggestions or bug reports welcome via email or GitHub issues.
 
 ## License
