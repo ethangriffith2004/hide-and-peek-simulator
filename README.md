@@ -78,7 +78,7 @@ This project:
 4. Run the script.
 
 ```python
-python3 hide_and_peek_simulator.py
+python3 path/to/hide_and_peek_simulator.py
 ```
 
 ### Examples
