@@ -15,7 +15,7 @@ A Python script to simulate the Hide-and-Peek minigame in [*Wii Party*](https://
 
 ## Background
 
-Growing up, I played *Wii Party* with my family religiously. One of the minigames within it, "Hide-and-Peek", has stuck with me. It is a simple hide-and-seek game.
+Growing up, I enjoyed playing *Wii Party* with my family. One of the minigames within it, "Hide-and-Peek", has stuck with me. It is a simple hide-and-seek game.
 
 The mechanics of the game are:
 - Three players (hiders) choose between seven spots; more than 1 player can hide in the same spot.
