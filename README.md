@@ -15,7 +15,7 @@ A Python script to simulate the Hide-and-Peek minigame in [*Wii Party*](https://
 
 ## Background
 
-Growing up, I played *Wii Party* with my family religiously. One of the minigames within it, **Hide-and-Peek**, has continued to stick with me. It is a very simple hide-and-seek game.
+Growing up, I enjoyed playing *Wii Party* with my family. One of the minigames within it, "Hide-and-Peek", has stuck with me. It is a simple hide-and-seek game.
 
 The mechanics of the game are:
 - Three players (hiders) choose between seven spots; more than 1 player can hide in the same spot.
@@ -24,21 +24,21 @@ The mechanics of the game are:
 
 However:
 - Only six of the seven spots are legit.
-- One of the spots is a "joke spot", and any hiders who choose it are immediately visible, but the seeker still has to look there to count them as found.
+- One of the spots is a "joke spot", and any hiders who choose it are immediately visible (but the seeker still has to look there to count them as found).
 
-I always thought the "joke spot" was just that: a joke. Though, I eventually came across claims that **intentionally using it could improve the hiders' odds of winning**. I saw nothing to truly back this up, however, so I wanted to find out for myself.
+I always thought the "joke spot" was just that: a joke, to use when no one was taking the game very seriously. I eventually, though, came across claims that one player intentionally choosing it could improve the hiders' odds of winning. I saw nothing to back this up, however, so I wanted to find out for myself.
 
 ## Project Overview
 
-This project simulates the minigame. The simulation models the game mechanics and calculates the hiders' win probabilities after a set number of trials using two distinct strategies:
+This project simulates the minigame. The simulation models the game mechanics and calculates the hiders' win probabilities after a set number of trials using two strategies:
 - **Strategy A**
   - The three hiders each choose randomly between the six legit spots.
   - The seeker ignores the joke spot.
-  - The seeker has five searches to find the three players among six spots.
+  - The seeker has five searches to find the three players among the six legit spots.
 - **Strategy B**
   - One hider intentionally chooses the joke spot, while the other two each choose randomly between the six legit spots.
   - The seeker searches the joke spot first, finding that hider immediately.
-  - The seeker has four searches to find the remaining two players among six spots.
+  - The seeker has four searches to find the remaining two players among the six legit spots.
 
 ## Technologies Used
 - Python 3.x
@@ -47,19 +47,19 @@ This project simulates the minigame. The simulation models the game mechanics an
 ## Results
 
 <details>
-  <summary>Spoiler warning!</summary>
+  <summary>Spoiler warning</summary>
   
-  After running at least 10,000 trials for each strategy, the simulation begins to reliably reveal that **Strategy B** (deliberately choosing the joke spot) increases the hiders' chances of winning by approximately **13.5%**! This gives support to the online claim.
+  After running at least 10,000 trials for each strategy, the simulation begins to reliably reveal that Strategy B (deliberately choosing the joke spot) increases the hiders' chances of winning by approximately 13.5%, supporting the claims I saw online.
   
 </details>
 
-Keep reading if you would like to test the results yourself!
+Keep reading if you would like to test the results yourself.
 
 ## Takeaways
 
 This project:
-- Gave me a hands-on way to **explore probability and game theory**, concepts I always found a bit abstract.
-- **Strengthened my Python fundamentals**, especially regarding loops, randomness, and writing readable code.
+- Gave me a hands-on way to explore probability and game theory, concepts I always found a bit abstract.
+- Strengthened my Python fundamentals, especially regarding loops, randomness, and writing readable code.
 
 ## Improvements & Extensions
 
@@ -78,7 +78,7 @@ This project:
 4. Run the script.
 
 ```python
-python3 hide_and_peek_simulator.py
+python3 path/to/hide_and_peek_simulator.py
 ```
 
 ### Examples
@@ -106,7 +106,7 @@ nExamples = 3
 
 ## Contributing
 
-- Fork the repo and submit a pull request with any improvements!
+- Fork the repo and submit a pull request with any improvements.
 - Suggestions or bug reports welcome via email or GitHub issues.
 
 ## License
