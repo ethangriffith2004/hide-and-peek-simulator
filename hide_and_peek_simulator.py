@@ -6,13 +6,17 @@ Licensed under the MIT License. See LICENSE file for details.
 import random
 
 '''
-simulation of the wii party minigame "hide-and-peek".
-- 3 hiders, 1 seeker. seven spots: 6 legit, 1 joke.
-- seeker can look in 5 of the 7 spots to find all 3 hiders. if all are found within 5 searches, seeker wins. if not, hiders win.
+simulation of the wii party minigame "hide-and-peek"
+- 3 hiders, 1 seeker
+- 7 spots: 6 legit, 1 joke
+- seeker can look in 5 of the 7 spots to find all 3 hiders
+- if all are found within 5 searches, seeker wins
+- if not, hiders win
 
-two strategies being tested:
-- strategy A: all hiders randomly choose among the 6 legit spots (repeats allowed).
-- strategy B: one hider deliberately hides in the joke spot; other two randomly choose among the 6 legit spots (repeats allowed).
+3 strategies being tested:
+- strategy A: all hiders randomly choose among the 6 legit spots (repeats allowed)
+- strategy B: one hider deliberately hides in the joke spot; other two randomly choose among the 6 legit spots (repeats allowed)
+- strategy C: two hiders deliberately hide in the joke spot; remaining hider randomly chooses among the 6 legit spots
 '''
 
 def main() :
@@ -20,8 +24,8 @@ def main() :
     # ---------------------
     # simulation parameters
     # ---------------------
-    runTrials = False
-    nTrials = 10000
+    runTrials = True
+    nTrials = 100000
     # ---------------------
     runExamples = False
     nExamples = 3
@@ -37,6 +41,7 @@ def main() :
         print()
         runExampleGames("A", nExamples)
         runExampleGames("B", nExamples)
+        runExampleGames("C", nExamples)
 
     # if neither are enabled
     if (not runTrials) and (not runExamples) :
@@ -141,6 +146,54 @@ def runStrategyB(trials : int, returnDetails : bool) :
     else :
         return hiderWins / trials
 
+def runStrategyC(trials : int, returnDetails : bool) :
+
+    '''
+    simulate games where two hiders choose the joke spot (6) and the remaining hider chooses among the 6 legit spots.
+    the seeker must still use one search on the joke spot, leaving 4 searches among the 6 legit spots.
+    '''
+
+    legitSpots = [0, 1, 2, 3, 4, 5] # legit hiding spots
+    jokeSpot = 6 # joke spot
+    hiderWins = 0
+    details = []
+
+    for i in range(trials) :
+        # place two hiders in the joke spot
+        hiderSpots = [jokeSpot, jokeSpot]
+
+        # remaining hider chooses among legit spots
+        hiderSpots.append(random.choice(legitSpots))
+
+        # seeker search set starts with the joke spot
+        searchSpots = {jokeSpot}
+
+        # seeker then chooses 4 unique spots to search among the legit spots
+        while len(searchSpots) < 5 :
+            searchSpots.add(random.choice(legitSpots))
+
+        # all other logic is the same
+        allFound = True
+        for spot in hiderSpots :
+            if spot not in searchSpots :
+                allFound = False
+                break
+
+        if not allFound :
+            hiderWins += 1
+
+        if returnDetails :
+            if not allFound :
+                winner = "Hiders"
+            else :
+                winner = "Seeker"
+            details.append((hiderSpots, list(searchSpots), winner))
+
+    if returnDetails :
+        return details
+    else :
+        return hiderWins / trials
+
 def runTrialGames(numTrials : int) :
 
     '''
@@ -149,24 +202,23 @@ def runTrialGames(numTrials : int) :
 
     hiderWinRateA = runStrategyA(numTrials, False)
     hiderWinRateB = runStrategyB(numTrials, False)
-    advantage = abs(hiderWinRateA - hiderWinRateB)
-    equal = False
-    if hiderWinRateA > hiderWinRateB :
-        betterStrat = "Strategy A"
-    elif hiderWinRateA == hiderWinRateB :
-        equal = True
-    else :
-        betterStrat = "Strategy B"
+    hiderWinRateC = runStrategyC(numTrials, False)
+    
     print(f"--- Simulation results ---")
-    print(f"{numTrials} trials run for both strategies")
+    print(f"{numTrials} trials run for all strategies")
     print()
     print(f"Strategy A hider win percentage: {hiderWinRateA * 100:.2f}%")
     print(f"Strategy B hider win percentage: {hiderWinRateB * 100:.2f}%")
+    print(f"Strategy C hider win percentage: {hiderWinRateC * 100:.2f}%")
     print()
-    if not equal : 
-        print(f"Using {betterStrat}, the hiders were {advantage * 100:.2f}% more likely to win this round!")
-    else :
-        print(f"Strategies A and B gave the hiders equal chances to win this round!")
+    
+    # determine best strategy
+    rates = [("Strategy A", hiderWinRateA), ("Strategy B", hiderWinRateB), ("Strategy C", hiderWinRateC)]
+    rates.sort(key=lambda x: x[1], reverse=True)
+    bestStrategy = rates[0][0]
+    bestRate = rates[0][1]
+    
+    print(f"Best: {bestStrategy} with {bestRate * 100:.2f}% hider win rate")
     print()
 
 def runExampleGames(strategy : str, nExamples : int) :
@@ -178,8 +230,11 @@ def runExampleGames(strategy : str, nExamples : int) :
     print(f"-- {nExamples} example games for Strategy {strategy} --")
     if strategy == "A" :
         games = runStrategyA(nExamples, True)
-    else :
+    elif strategy == "B" :
         games = runStrategyB(nExamples, True)
+    else :
+        games = runStrategyC(nExamples, True)
+    
     for i in range(len(games)) :
         hiderSpots, searchSpots, winner = games[i]
         print(f"Game {i + 1}:")
