@@ -27,7 +27,7 @@ def main() :
     runTrials = True
     nTrials = 100000
     # ---------------------
-    runExamples = False
+    runExamples = True
     nExamples = 3
     # ---------------------
 
@@ -52,7 +52,7 @@ def main() :
 def runStrategyA(trials : int, returnDetails : bool) :
 
     '''
-    simulate games where all three hiders choose randomly among the 6 legit spots.
+    simulate games where all three hiders choose randomly among the 6 legit spots (0-5)
     the seeker has 5 searches among those 6 legit spots.
     '''
 
@@ -100,7 +100,7 @@ def runStrategyA(trials : int, returnDetails : bool) :
 def runStrategyB(trials : int, returnDetails : bool) :
 
     '''
-    simulate games where one hider chooses the joke spot (6) and the other two choose among the 6 legit spots.
+    simulate games where one hider chooses the joke spot (6) and the other two choose among the 6 legit spots (0-5).
     the seeker must still use one search on the joke spot, leaving 4 searches among the 6 legit spots.
     '''
 
@@ -149,7 +149,7 @@ def runStrategyB(trials : int, returnDetails : bool) :
 def runStrategyC(trials : int, returnDetails : bool) :
 
     '''
-    simulate games where two hiders choose the joke spot (6) and the remaining hider chooses among the 6 legit spots.
+    simulate games where two hiders choose the joke spot (6) and the remaining hider chooses among the 6 legit spots (0-5).
     the seeker must still use one search on the joke spot, leaving 4 searches among the 6 legit spots.
     '''
 
@@ -213,12 +213,16 @@ def runTrialGames(numTrials : int) :
     print()
     
     # determine best strategy
-    rates = [("Strategy A", hiderWinRateA), ("Strategy B", hiderWinRateB), ("Strategy C", hiderWinRateC)]
-    rates.sort(key=lambda x: x[1], reverse=True)
-    bestStrategy = rates[0][0]
-    bestRate = rates[0][1]
+    bestStrat = "Strategy A"
+    bestRate = hiderWinRateA
+    if hiderWinRateB > bestRate :
+        bestStrat = "Strategy B"
+        bestRate = hiderWinRateB
+    if hiderWinRateC > bestRate :
+        bestStrat = "Strategy C"
+        bestRate = hiderWinRateC
     
-    print(f"Best: {bestStrategy} with {bestRate * 100:.2f}% hider win rate")
+    print(f"Best strategy: {bestStrat} with {bestRate * 100:.2f}% hider win rate")
     print()
 
 def runExampleGames(strategy : str, nExamples : int) :
