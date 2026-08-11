@@ -26,10 +26,10 @@ The mechanics of the game are:
 
 However:
 
-- Only six of the seven spots are legit.
-- One of the spots is a "joke spot", and any hiders who choose it are immediately visible (but the seeker still has to look there to count them as found).
+- Only six of the seven spots are "legit".
+- One of the spots is a "joke", where any hiders who choose it are immediately visible (but the seeker still has to look there to count them as found).
 
-I always thought the "joke spot" was just that: a joke, to use when no one was taking the game very seriously. I eventually, though, came across claims that one player intentionally choosing it could improve the hiders' odds of winning. I saw nothing to back this up, however, so I wanted to find out for myself.
+I always thought the joke spot was just that: a joke, to use when no one was taking the game seriously. Though, I eventually came across claims that one player intentionally choosing it could improve the hiders' odds of winning. I saw nothing to truly back this up, so I wanted to find out for myself.
 
 ## Project Overview
 
